@@ -1,5 +1,5 @@
 
-package io.dorbae.study.algorithm.codility;
+package io.dorbae.study.algorithm.codility.iterations;
 
 /*****************************************************************
  * 
@@ -30,54 +30,40 @@ package io.dorbae.study.algorithm.codility;
  *
  */
 public class BinaryGap {
-//	public int solution( int N) {
-//		int maximumInterval = 0;
-//		int count = 0;
-//		String binary = Integer.toBinaryString( N);
-////		System.out.println( "binary=" + binary);
-//		boolean isIng = false;
-//		char[] checkData = binary.toCharArray();
-//		for ( int ll = 0; ll < checkData.length; ll++) {
-//			if ( checkData[ ll] == '1') {
-//				if ( isIng) {
-//					if ( count > maximumInterval)
-//						maximumInterval = count;
-//					count = 0;
-//				}
-//				
-//				isIng = !isIng;
-//				
-//			} else {
-//				if ( isIng)
-//					++count;
-//			}
-//		}
-//		
-//		return maximumInterval;
-//	}
+	/**
+	 * 
+	 *
+	 * @version	1.1.0	2018-05-23 23:13:14	dorbae	예외처리. 오류 수
+	 * @version	1.0.0	2018-05-14 23:12:59	dorbae	최초생성
+	 * @since 1.0.0
+	 * @author dorbae(dorbae.io@gmail.com)
+	 *
+	 * @param N : positive integer
+	 * @return : the length of its longest binary gap
+	 */
 	public int solution( int N) {
+		if ( N < 1 || N > 2147483647) {
+			System.out.println( "N is out of range.");
+			return 0;
+		}
+		
 		int maximumInterval = 0;
 		int count = 0;
 		String binary = Integer.toBinaryString( N);
 //		System.out.println( "binary=" + binary);
-		boolean isIng = true;
 		char[] checkData = binary.toCharArray();
 		for ( int ll = 1; ll < checkData.length; ll++) {
 			if ( checkData[ ll] == '1') {
-				if ( isIng) {
-					if ( count > maximumInterval)
-						maximumInterval = count;
-					count = 0;
-				}
-				
-				isIng = !isIng;
+				if ( count > maximumInterval)
+					maximumInterval = count;
+				count = 0;
 				
 			} else {
-				if ( isIng)
-					++count;
+				++count;
 			}
 		}
 		
 		return maximumInterval;
 	}
+	
 }

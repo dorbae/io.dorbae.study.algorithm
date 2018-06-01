@@ -71,7 +71,7 @@ public class TapeEquilibrium {
 	 *
 	 * @param A : a non-empty array (the range of elements is -1000 ~ 1000)
 	 * 
-	 * @return : a minimal different between two arrays that be seperated by P
+	 * @return : a minimal different between two arrays that be seperated by Pb
 	 */
 	public int solution( int[] A) {
 		if ( A == null) {
